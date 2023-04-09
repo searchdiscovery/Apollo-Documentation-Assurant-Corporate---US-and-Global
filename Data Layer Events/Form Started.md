@@ -10,7 +10,6 @@ dataLayer.push({
   "event": "form_start",
   "detailed_event": "Form Started",
     "event_data": {
-        "form_field_id": "<form_field_id>",
         "name": "<name>",
         "type": "<type>"
     }
@@ -21,10 +20,9 @@ dataLayer.push({
 
 |Path|Type|Description|Example|Pattern|Min Length|Max Length|Minimum|Maximum|Multiple Of|
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|event_data.form_field_id|string|Captures the ID of each field contained on a form.||||||||
 |event_data.name|string|Captures the human-friendly name of the form.|Payment Info, Mailing Address, Payment Address, Contact Us|||||||
 |event_data.type|string|Captures the type of form \(i.e. demo, free trial, contact us\).|Address, Contact, Comment, Review, Payment|||||||
 
+## Attached Notes
 
-
-
+<p>This event should be fired on the first field interaction.&nbsp;</p>
