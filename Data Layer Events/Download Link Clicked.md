@@ -25,4 +25,4 @@ dataLayer.push({
 
 ## Attached Notes
 
-<p>This event should be pushed when a download is completed.&nbsp;</p>
+<p>This event should be pushed when a download is completed. This should fire once a thank you message appears. Firing on the CTA click may inflate the success event.&nbsp;</p>
