@@ -29,7 +29,7 @@ siteType: "brochure"
 
 *When to Trigger:* The `Page Load Started` should be triggered on the initial load of the page, while the `Page Load Completed` should trigger on Window Loaded.  
 
-We will use the Page Load Started event to send a configuration tag to Google Tag Manager, while the Page Load Completed event will send a `page_view` event to GA4. We recommend setting the traits in both events.
+We will use the Page Load Started event to send a configuration tag to Google Tag Manager, while the Page Load Completed event will send a `page_view` event to GA4. 
 
 The Current and New Variable Names are included below:
 
