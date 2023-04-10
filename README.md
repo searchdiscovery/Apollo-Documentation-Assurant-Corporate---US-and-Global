@@ -21,6 +21,30 @@ gatedType: "non gated"
 pageLanguage: "English"
 pageType: "Home"
 siteType: "brochure"
+# Apollo-Documentation-Assurant-Corporate---US-and-Global
+
+<h1 id="user-content-overview" dir="auto"><strong>Overview</strong></h1>
+<p dir="auto">This repository contains the necessary specifications to build an event driven data layer and install GTM on your web application.</p>
+<h2 id="user-content-google-tag-manager-deployment" dir="auto"><a id="user-content-google-tag-manager" class="anchor" href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/edit/main/README.md#google-tag-manager" aria-hidden="true"></a>Google Tag Manager&nbsp;</h2>
+<p dir="auto">Google Tag Manager (Container ID&nbsp;GTM-KQFMSZR)&nbsp;has already been deployed to Assurant.com and the global properties, with the exception of the Netherlands' website. We found this site still utilizes analytics.js and should be implemented via GTM.</p>
+<h3 id="user-content-implement-the-code-snippets-in-the-of-the-sample-html-page" dir="auto"><a id="user-content-data-layer" class="anchor" href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/edit/main/README.md#data-layer" aria-hidden="true"></a>Data Layer</h3>
+<p dir="auto">Each file inside the events folder corresponds to a single use case or site event that needs to be implemented. These events are leveraged to trigger tracking rules in the tag management tool of choice and share data with the analytics reporting tool.</p>
+<p dir="auto">As the data layer is event-based, the order in which the events are fired is critical. In general, events should be pushed onto the data layer in the following sequence when a page load (virtual or otherwise) occurs:</p>
+<p dir="auto">Page Load Started &gt;&nbsp;<em>Other Page-level Events</em>&nbsp;&gt; Page Load Completed</p>
+<p dir="auto">If an Event is part of the page load sequence, it will be indicated in the corresponding event file.</p>
+<p dir="auto">Events that occur outside of the page load sequence should be pushed onto the data layer as they occur.</p>
+<h2 dir="auto" data-sourcepos="12:1-12:21"><a id="user-content-user-visit-started" class="anchor" href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/edit/main/README.md#user-visit-started" aria-hidden="true"></a>User Visit Started</h2>
+<p dir="auto" data-sourcepos="14:1-14:81"><em>Current State:</em>&nbsp;This is not used currently on Assurant.com and the Global sites.</p>
+<p dir="auto" data-sourcepos="16:1-16:89"><em>When to Trigger:</em>&nbsp;Upon user's first start to the session. It should only be called once.</p>
+<h2 dir="auto" data-sourcepos="18:1-18:59"><a id="user-content-custom-events-page-load-started-and-page-load-completed" class="anchor" href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/edit/main/README.md#custom-events-page-load-started-and-page-load-completed" aria-hidden="true"></a>Custom Events: Page Load Started and Page Load Completed</h2>
+<p dir="auto" data-sourcepos="20:1-20:162"><em>Current State</em>: These events are not triggered today. This dataLayer declaration can be removed since we will be passing some of these traits in the page events.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto">
+<pre class="notranslate"><code>bizCategory: "corporate"
+gatedType: "non gated"
+pageLanguage: "English"
+pageType: "Home"
+siteType: "brochure"
+
 </code></pre>
 </div>
 <p dir="auto" data-sourcepos="30:1-30:162"><em>When to Trigger:</em>&nbsp;The&nbsp;<code>Page Load Started</code>&nbsp;should be triggered on the initial load of the page, while the&nbsp;<code>Page Load Completed</code>&nbsp;should trigger on Window Loaded.</p>
@@ -104,3 +128,56 @@ siteType: "brochure"
 <p dir="auto" data-sourcepos="76:1-76:450"><em>Future State</em>:&nbsp;<a href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Video%20Started.md#video-started">Video Starts</a>&nbsp;should be triggered on the initial video play and&nbsp;<a href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Video%20Completed.md#video-completed">Video Completions</a>&nbsp;when the full video is watched.</p>
 <h2 id="user-content-questionscomments" dir="auto"><a id="user-content-questionscomments" class="anchor" href="https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/edit/main/README.md#questionscomments" aria-hidden="true"></a>Questions/Comments</h2>
 <p dir="auto">For any questions or comments, please contact nedie.recel@searchdiscovery.com and alyssa.cuson@searchdiscovery.com.</p>
+=======
+```
+
+*When to Trigger:* The `Page Load Started` should be triggered on the initial load of the page, while the `Page Load Completed` should trigger on Window Loaded.  
+
+We will use the Page Load Started event to send a configuration tag to Google Tag Manager, while the Page Load Completed event will send a `page_view` event to GA4. 
+
+The Current and New Variable Names are included below:
+
+| Current Variable Names | Sample Value(s) | New Variable Names | 
+| ------------- | ------------- | ------------- |
+| bizCategory | corporate | TBD |
+| gatedType | nonGated | Page Experience | 
+| pageLanguage | English | Page Language | 
+| pageType | Lender-Placed Insurance, Manufactured Housing | Site Section | 
+| siteType | brochure | TBD | 
+| contentName | Overview | Page Name | 
+| line_of_business | MFH | Product Category Level 1 |
+| Subcategory | Deposit Solutions | Product Category Level 2 |
+
+## Custom Event: Form Starts and Form Completed Events
+
+*Current State:* 
+
+Form Starts are triggered in Google Tag Manager using:
+
+1. Click event when CSS selector matches `form *,#subscribe-form-btn` - If this selector is not used universally across Assurant sites, it can undercount the total form starts. 
+
+Form submissions are triggered in two ways:
+
+1. Custom dataLayer event called `e_formSubmit`
+2. Using Google Tag Manager's built in Form Submission trigger
+
+*Future State: Assurant should migrate from the CSS selectors on form starts and `e_formSubmit` or the built-in triggers on completions to these events:*
+1. [Form Started](https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Form%20Started.md#javascript-coded): This can be triggered on first interaction with the form. 
+2. [Form Submission Succeeded](https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Form%20Submission%20Succeeded.md#javascript-code): This should be triggered only when the form is successfully submitted. 
+
+## Custom Event: Downloads
+
+*Current State*: To trigger successful downloads, Google Tag Manager triggers a download event using:
+
+1. Click event when CSS selector matches RegEx `(.*pdf*|.*jpg*)` - This should work universally, but we recommend moving to a dataLayer event to keep these events consistent with the other dataLayer events.
+
+*Future State:* Use the [Download Clicked Events](https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Download%20Link%20Clicked.md#javascript-code). We will remove the CSS trigger in GTM.
+
+## Custom Event: Video Plays and Completions
+
+*Current State:* Video Starts are triggered in GTM with a CSS selector `layout-video-overlay-template` and completions use a built-in GTM trigger.
+
+*Future State*: [Video Starts](https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Video%20Started.md#video-started) should be triggered on the initial video play and [Video Completions](https://github.com/searchdiscovery/Apollo-Documentation-Assurant-Corporate---US-and-Global/blob/main/Data%20Layer%20Events/Video%20Completed.md#video-completed) when the full video is watched.
+
+<h2 id="questionscomments">Questions/Comments</h2>
+<p>For any questions or comments, please contact nedie.recel@searchdiscovery.com and alyssa.cuson@searchdiscovery.com.</p>
