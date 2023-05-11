@@ -21,7 +21,6 @@ gatedType: "non gated"
 pageLanguage: "English"
 pageType: "Home"
 siteType: "brochure"
-
 </code></pre>
 </div>
 <p dir="auto" data-sourcepos="30:1-30:162"><em>When to Trigger:</em>&nbsp;The&nbsp;<code>Page Load Started</code>&nbsp;should be triggered on the initial load of the page, while the&nbsp;<code>Page Load Completed</code>&nbsp;should trigger on Window Loaded.</p>
