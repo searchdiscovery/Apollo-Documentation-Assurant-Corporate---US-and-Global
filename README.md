@@ -43,7 +43,7 @@ siteType: "brochure"
 <tr data-sourcepos="39:1-39:43">
 <td data-sourcepos="39:2-39:12">gatedType</td>
 <td data-sourcepos="39:14-39:23">nonGated</td>
-<td data-sourcepos="39:25-39:41">Page Experience</td>
+<td data-sourcepos="39:25-39:41">Will not exist in new dataLayer</td>
 </tr>
 <tr data-sourcepos="40:1-40:43">
 <td data-sourcepos="40:2-40:15">pageLanguage</td>
@@ -68,12 +68,12 @@ siteType: "brochure"
 <tr data-sourcepos="44:1-44:53">
 <td data-sourcepos="44:2-44:19">line_of_business</td>
 <td data-sourcepos="44:21-44:25">MFH</td>
-<td data-sourcepos="44:27-44:52">Product Category Level 1</td>
+<td data-sourcepos="44:27-44:52">Line of Business</td>
 </tr>
 <tr data-sourcepos="45:1-45:62">
-<td data-sourcepos="45:2-45:14">Subcategory</td>
+<td data-sourcepos="45:2-45:14">N/A</td>
 <td data-sourcepos="45:16-45:34">Deposit Solutions</td>
-<td data-sourcepos="45:36-45:61">Product Category Level 2</td>
+<td data-sourcepos="45:36-45:61">Product Category Level 1</td>
 </tr>
 </tbody>
 </table>
