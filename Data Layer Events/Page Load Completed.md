@@ -12,7 +12,6 @@ dataLayer.push({
     "page_data": {
         "audience_segment": "<audience_segment>",
         "line_of_business": "<line_of_business>",
-        "page_variant": "<page_variant>",
         "product_category_level_1": "<product_category_level_1>",
         "site_section": "<site_section>",
         "type": "<type>"
@@ -26,7 +25,6 @@ dataLayer.push({
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |page_data.audience_segment|string|Custom DLV source for Assurant.com's Audience Segment||||||||
 |page_data.line_of_business|string|Custom DLV for Assurant.com's line of business|Lender-Placed Insurance, Connected Living|||||||
-|page_data.page_variant|string|When a feature ramp up is taking place, capture a code to identify users receiving that feature's experience.||||||||
 |page_data.product_category_level_1|string|Defines the main product\/service defined on that page|Security Deposit Alternatives, Renters Insurance Programs|||||||
 |page_data.site_section|string|The section of the site that the current page resides in. site\_section2 through site\_section5can also be used if the site has many sections.|Partner Solutions, Our Story, News & Insights, Investor Relations, Careers|||||||
 |page_data.type|string|The type of page currently viewed.|home, pdp, article|||||||
