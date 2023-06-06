@@ -13,9 +13,7 @@ dataLayer.push({
         "country": "<country>",
         "language": "<language>",
         "page_location": "<page_location>",
-        "page_title": "<page_title>",
-        "site_country": "<site_country>",
-        "site_language": "<site_language>"
+        "page_title": "<page_title>"
     }
 });
 ```
@@ -28,8 +26,6 @@ dataLayer.push({
 |page_data.language|string|The language of the current page, usually pulled from the &lt;html&gt; tag lang attribute.|en-us, en-gb, ch-cn, fr-ca, fr-fr|||||||
 |page_data.page_location|string|The URL of the page currently being viewed. This value will include the full, unaltered URL of the page\/screen the user is currently viewing, including query parameters, fragments, etc., for example https:\/\/www.example.com\/home?user=true&audience=test\#aboutus.|https:\/\/www.example.com\/home?user=true&audience=test\#aboutus|||||||
 |page_data.page_title|string|The title of the page currently being viewed, generally available in &lt;title&gt;.||||||||
-|page_data.site_country|string|Captures the country associated with website or mobile app activity.|US, CA, FR, UK|^[A-Z]{2}$||||||
-|page_data.site_language|string|Captures the language associated with website or mobile app activity.|en-us, en-gb, ch-cn, fr-ca, fr-fr, da|^[a-z]{2}([-]{1}[a-z]{2}){0,1}$||||||
 
 
 
